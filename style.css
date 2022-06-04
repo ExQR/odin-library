@@ -1,0 +1,16 @@
+fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 100vh;
+    gap: 10px;
+    align-items: center;
+}
+
+#read {
+    height: 20px;
+    width: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(194, 193, 193);
+}

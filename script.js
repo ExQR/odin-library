@@ -1,3 +1,5 @@
+let myLibrary = [];
+
 function Book (title, author, pages, read) {
     this.author = author;
     this.title = title;
@@ -8,6 +10,21 @@ function Book (title, author, pages, read) {
     }
 }
 
-const hobbit = new Book ('The Hobbit', "Tolkien", 295, 'not read');
+function addBookToLibrary() {
+    myLibrary.push(book);
+}
 
-console.log(hobbit.info());
+const addBtn = document.querySelector('#add');
+addBtn.addEventListener('click', (e) => {addBookToLibrary});
+
+const readBtn = document.querySelector('#read');
+readBtn.addEventListener('click', (e) => {
+        if (readBtn.value == "off") {
+            readBtn.value = "on";
+            readBtn.style = "background-color: rgb(25, 120, 200); transition: 1s"
+        } else { 
+            readBtn.value = "off";
+            readBtn.style = "background-color: rgb(194,194,194); transition: 1s"
+        }
+    }
+);
