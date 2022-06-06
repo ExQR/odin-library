@@ -1,8 +1,8 @@
-fieldset {
+form {
     display: flex;
     flex-direction: column;
     width: 300px;
-    height: 100vh;
+    height: 300px;
     gap: 10px;
     align-items: center;
 }
@@ -13,4 +13,12 @@ fieldset {
     border-radius: 10px;
     border: none;
     background-color: rgb(194, 193, 193);
+}
+
+#bookshelf {
+    display: grid;
+}
+
+.container {
+    display: flex;
 }
