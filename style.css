@@ -15,10 +15,19 @@ form {
     background-color: rgb(194, 193, 193);
 }
 
-#bookshelf {
+.bookshelf {
     display: grid;
+    grid-template-columns: 1fr, 1fr;
+    grid-template-rows: 1;
+    gap: 20px;
 }
 
 .container {
     display: flex;
+}
+#card {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 200px;
 }

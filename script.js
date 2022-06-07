@@ -26,15 +26,24 @@ submitBtn.addEventListener('click', (e) => {
     let formData = new FormData(form);
     let book = new Book(formData.get('title'), formData.get('author'), formData.get('pages'), readBtn.value);
     myLibrary.push(book);
-    addCard();
+    addCard(book);
     form.reset();
     readBtn.value = 'false';
     readBtn.style = "background-color: rgb(194,194,194); transition: 1s"
     
 } );
 
-function addCard() {
+function addCard(book) {
     const bookshelf = document.querySelector('.bookshelf');
     let card = document.createElement('div');
+    card.setAttribute('id', 'card');
+    card.setAttribute('index', myLibrary.indexOf(book))
     bookshelf.appendChild(card);
+    for (let prop in book) {
+        if (Object.prototype.hasOwnProperty.call(book, prop)) {
+            let info = document.createElement('p');
+            info.innerHTML = book[prop];
+            card.appendChild(info);
+        }        
+    }
 }
