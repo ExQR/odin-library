@@ -1,3 +1,19 @@
+body {
+    background-color: rgb(253, 254, 255);
+    margin: 0px;
+}
+header {
+    text-align: center;
+    padding-top: 30px;
+    height: 70px;
+    font-size: 30px;
+    font-weight: bold;
+    color: azure;
+    background-color: rgb(91, 139, 180);
+    margin-bottom: 30px;
+    box-shadow: 7px 7px 7px rgb(226, 226, 226);
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -17,17 +33,23 @@ form {
 
 .bookshelf {
     display: grid;
-    grid-template-columns: 1fr, 1fr;
-    grid-template-rows: 1;
+    grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
     gap: 20px;
 }
 
 .container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    gap:40px;
+    
 }
 #card {
     display: flex;
     flex-direction: column;
-    width: 100px;
+    width: 200px;
     height: 200px;
+    border: 1px solid rgb(176, 209, 247);
+    align-items: center;
+    background: linear-gradient(#639de0, #619bca);
+    box-shadow: 7px 7px 7px rgb(218, 218, 218);
 }

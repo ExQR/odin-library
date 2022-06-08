@@ -46,4 +46,9 @@ function addCard(book) {
             card.appendChild(info);
         }        
     }
+    let delBtn = document.createElement('button');
+    delBtn.setAttribute('type', 'button');
+    delBtn.setAttribute('id', 'delBtn');
+    delBtn.innerHTML = 'del';
+    card.appendChild(delBtn);
 }
