@@ -9,18 +9,17 @@ function Book (title, author, pages, read) {
 
 const readBtn = document.querySelector('#read');
 readBtn.addEventListener('click', (e) => {
-        if (readBtn.value == "false") {
-            readBtn.value = "true";
-            readBtn.style = "background-color: rgb(25, 120, 200); transition: 1s"
+        if (readBtn.value == "Not finished") {
+            readBtn.value = "Finished";
+            readBtn.style = "background-color: rgb(25, 120, 200); transition: 1s;"
         } else { 
-            readBtn.value = "false";
+            readBtn.value = "Not finished";
             readBtn.style = "background-color: rgb(194,194,194); transition: 1s"
         }
     }
 );
 
 const submitBtn = document.querySelector('#add');
-
 submitBtn.addEventListener('click', (e) => {
     let form = document.querySelector('#inputform');
     let formData = new FormData(form);
@@ -28,10 +27,11 @@ submitBtn.addEventListener('click', (e) => {
     myLibrary.push(book);
     addCard(book);
     form.reset();
-    readBtn.value = 'false';
+    readBtn.value = 'Not finished';
     readBtn.style = "background-color: rgb(194,194,194); transition: 1s"
     
 } );
+
 
 function addCard(book) {
     const bookshelf = document.querySelector('.bookshelf');
@@ -39,16 +39,25 @@ function addCard(book) {
     card.setAttribute('id', 'card');
     card.setAttribute('index', myLibrary.indexOf(book))
     bookshelf.appendChild(card);
+    let info = document.createElement('div');
+    info.setAttribute('id', 'info');
+    card.appendChild(info);
     for (let prop in book) {
         if (Object.prototype.hasOwnProperty.call(book, prop)) {
-            let info = document.createElement('p');
-            info.innerHTML = book[prop];
-            card.appendChild(info);
+            let infoText = document.createElement('p');
+            infoText.innerHTML = book[prop];
+            info.appendChild(infoText);
         }        
     }
+    let delButton = document.createElement('div');
+    delButton.setAttribute('id', 'del');
     let delBtn = document.createElement('button');
     delBtn.setAttribute('type', 'button');
     delBtn.setAttribute('id', 'delBtn');
-    delBtn.innerHTML = 'del';
-    card.appendChild(delBtn);
+    delBtn.innerHTML = '&#x1F5D1';
+    card.appendChild(delButton);
+    delButton.appendChild(delBtn);
+    delBtn.addEventListener('click', (e) => {
+        e.path[2].remove();
+    })
 }
